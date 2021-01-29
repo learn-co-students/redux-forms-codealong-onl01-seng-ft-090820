@@ -4,6 +4,8 @@ import App from './App';
 import manageTodo from './reducers/manageTodo';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { connect } from 'react-redux';
+
 
 let store = createStore(manageTodo);
 
@@ -13,3 +15,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+export default connect(null, mapDispatchToProps)(CreateTodo);
+//we dont need to write mapStateToProps because this component doesn't need any state, 
+//we just need to dispatch an action/change, so we just write 'null'
